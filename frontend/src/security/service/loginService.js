@@ -4,7 +4,6 @@ import delegateFetch from "../../utils/delegateFetch";
 
 export const loginUser = async (username, password) => {
     try {
-        console.log(API_URL + " HERE")
         const response = await delegateFetch(API_URL + LOGIN_PATH, {
             method: 'POST',
             headers: {
