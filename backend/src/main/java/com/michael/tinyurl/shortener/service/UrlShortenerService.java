@@ -11,7 +11,6 @@ import jakarta.persistence.EntityManager;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -69,7 +68,10 @@ public class UrlShortenerService {
     }
 
     public ShortenedUrl searchByUniqueId(String id) {
-        ShortenedUrlEntity shortenedUrlEntity = shortenedUrlRepository.findById(id).orElse(null);
-        return Optional.ofNullable(shortenedUrlEntity).map(shortenedUrl -> new ShortenedUrl(shortenedUrl.getId(), shortenedUrl.getOriginalUrl())).orElse(null);
+        ShortenedUrlEntity shortenedUrlEntity =
+                shortenedUrlRepository.findById(id).orElse(null);
+        return Optional.ofNullable(shortenedUrlEntity)
+                .map(shortenedUrl -> new ShortenedUrl(shortenedUrl.getId(), shortenedUrl.getOriginalUrl()))
+                .orElse(null);
     }
 }

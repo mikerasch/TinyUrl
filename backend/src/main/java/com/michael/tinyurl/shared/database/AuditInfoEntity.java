@@ -1,20 +1,22 @@
 package com.michael.tinyurl.shared.database;
 
 import jakarta.persistence.Embeddable;
+import java.time.Instant;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
-
-import java.time.Instant;
 
 @Embeddable
 public class AuditInfoEntity {
     @CreatedBy
     private String createdBy;
+
     @LastModifiedBy
     private String updatedBy;
+
     @CreatedDate
     private Instant createdAt;
+
     @LastModifiedBy
     private Instant updatedAt;
 
