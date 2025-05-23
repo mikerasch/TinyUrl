@@ -1,0 +1,28 @@
+import jwtService from "../security/service/jwtService";
+
+const fetchWithRetry = async (url, options, maxRetries = 3, authRequired = true) => {
+    let attempts = 0;
+    const token = jwtService.getToken()?.token ?? null;
+
+    if (authRequired && token) {
+        options.headers = {
+            ...options.headers,
+            Authorization: `Bearer ${token}`
+        };
+    }
+
+    while (attempts < maxRetries) {
+        try {
+            const response = await fetch(url, options);
+            if (!response.ok) {
+                attempts++;
+            }
+            return response;
+        } catch (error) {
+            attempts++;
+            if (attempts === maxRetries) {
+                throw new Error('Max retries reached. Request failed.');
+            }
+        }
+    }
+};

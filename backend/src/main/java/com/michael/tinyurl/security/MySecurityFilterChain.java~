@@ -1,0 +1,6 @@
+package com.michael.tinyurl.security;
+
+import org.springframework.security.web.SecurityFilterChain;
+
+public class MySecurityFilterChain implements SecurityFilterChain {
+}

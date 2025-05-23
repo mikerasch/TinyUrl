@@ -1,0 +1,9 @@
+export const API_URL = process.env.REACT_APP_API_URL;
+export const REDIRECT_PATH = 'r/';
+export const STRATEGY_TYPES_PATH = 'shortener/strategies';
+export const MINIMIZE_PATH = 'shortener/minimize';
+export const REGISTER_PATH = "auth/register";
+export const LOGIN_PATH = "auth/login";
+export const SHORTENER_HISTORY_PATH = "shortener/history";
+export const HTTP_STATUS_TO_NOT_RETRY = [401, 403, 400, 429];
+export const SHORTENER_SEARCH_BY_ID_PATH = "shortener/search-by-id";

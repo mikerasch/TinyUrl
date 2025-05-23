@@ -1,0 +1,4 @@
+rootProject.name = "TinyUrl"
+include 'backend'
+include 'frontend'
+
